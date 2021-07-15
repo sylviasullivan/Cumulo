@@ -1,0 +1,11 @@
+output/
+subdomains/
+tigramite/
+development/
+.ipynb_checkpoints/
+classifications/
+tropics_map.py
+Cumulo_corr.py
+Cumulo_corr2.py
+*.nc
+ERA5/ERA5*EPBig

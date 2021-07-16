@@ -1,4 +1,13 @@
-# Author: Sylvia Sullivan
+"""
+Author: Sylvia Sullivan
+Reads in the npy dataset and filters the tropics by hemisphere. Adjust the filename read in as <jahr> and the indices in the line thereafter for the hemisphere (line 9) as necessary.
+
+Then the function latlonCut takes <plat> and <plon> as the number of latitudinal and longitudinal subdomains into which you want to decompose and <lbl> as the prefix for the subdomain. For example, the first decomposition splits the longitudes into 2 intervals so that <plat> = 1, <plon> = 2, and <lbl> = 1. The seventh (and last) decomposition splits the longitudes into 64 intervals and latitudes into 4 intervals, so that <plat> = 4, <plon> = 64, and <lbl> = 7.
+
+The time series are averaged over each of the subdomains in this decomposition and stored in a dataframe as the column <lbl><subdomain number>. At the end, the entire dataframe is saved to a pkl named only with <lbl>. So, for example, Subdomains_1.pkl has columns named Subdomain_11 and Subdomain_12. Subdomains_2.pkl has columns named Subdomain_21..Subdomain_24.
+
+"""
+
 import pickle
 import numpy as np
 import pandas as pd

@@ -1,7 +1,11 @@
 output/
-subdomains/
+partitions/
 tigramite/
 development/
+anomalies/
+communities/
+documentation/
+delta-map-domains/
 .ipynb_checkpoints/
 classifications/
 tropics_map.py

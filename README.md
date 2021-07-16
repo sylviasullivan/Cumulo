@@ -1,8 +1,14 @@
 # Cumulo
 
-The initial goal of this project was to identify the spatiotemporal scales over which shallow and deep cloud coverage are significantly correlated/anti-correlated in the tropics and to explain why in terms of environmental variables. We use [Cumulo](https://arxiv.org/pdf/1911.04227.pdf) cloud classifications and ERA5 environmental variables - surface evaporation, surface/2-m temperature, and pressure velocity - and looks at their time-lagged autocorrelations. We also run [delta-maps](https://arxiv.org/pdf/1602.07249.pdf) and [community detection](https://www.nature.com/articles/srep30750) algorithms (The second link is not the exact algorithm that Fabri used; I need to ask him to link it.) on these classifications and environmental variables for dimensionality reduction, i.e. to identify spatial domains over which the fields temporally evolve in a similar manner. Finally, we establish causal links between time series of the cloud classifications and environmental conditions in these delta-map domains or communities using the [Tigramite](https://github.com/jakobrunge/tigramite) causality algorithm. 
+The initial goal of this project was to identify the spatiotemporal scales over which shallow and deep cloud coverage are significantly correlated/anti-correlated in the tropics and to explain why in terms of environmental variables. We use [Cumulo](https://arxiv.org/pdf/1911.04227.pdf) cloud classifications and ERA5 environmental variables - surface evaporation, surface/2-m temperature, and pressure velocity (w) - and looks at their time-lagged autocorrelations. We also run [delta-maps](https://arxiv.org/pdf/1602.07249.pdf) and [community detection](https://www.nature.com/articles/srep30750) algorithms (The second link is not the exact algorithm that Fabri used; I need to ask him to link it.) on these classifications and environmental variables for dimensionality reduction, i.e. to identify spatial domains over which the fields temporally evolve in a similar manner. Finally, we establish causal links between time series of the cloud classifications and environmental conditions in these delta-map domains or communities using the [Tigramite](https://github.com/jakobrunge/tigramite) causality algorithm. 
+
+In the full version of this project, available upon request, data are stored in the following directories: *classifications* hold the Cumulo classifications month-by-month or the full year and at native resolution and remapped to 0.5-deg; *partitions* hold the time series of cloud cover over the 'partitions' shown at the bottom of the README; *delta-map-domains* hold the output of the delta-maps algorithm (e.g. the domain ID of each grid cell is given in the delta_domain_map* files and delta_domain_border* consists of 1's for domain boundaries and 0's elsewhere); and *communities* hold the output of the community detection algorithm.
 
 Going forward, we are also interested to look at correlation/anti-correlation of the cloud classifications and environmental conditions in relation to anomalies in the tropical radiation budget as in [Bony et al. 2020](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019AV000155) but at daily rather than monthly timescales.
+
+*plot_delta_maps.ipynb* - Notebook for visualization of the delta-map domains (Author: FF)
+
+*preprocessing.ipynb* - Notebook for visualization of the standard deviation of the environmental variable and cloud fields and remove of grid cells with more than 70% nan values
 
 ### Scripts for correlograms and causality analysis with time series of cloud classifications and environmental variables
 
@@ -29,3 +35,5 @@ Going forward, we are also interested to look at correlation/anti-correlation of
 *community_stack.py* - Utility to reformat the output of the community detection algorithm
 
 *pklTxt.py* - itty bitty utility to transform pickles into txt files
+
+[partitions](partitions_map.png)
